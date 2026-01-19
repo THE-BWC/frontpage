@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+:root {
+  /* Tactical Dark Theme */
+  --background: #0f1115;
+  /* Deep Charcoal */
+  --foreground: #e0e2e5;
+  /* Soft White */
+
+  --primary: #901919;
+  /* Deep Red */
+  --primary-hover: #b31d1d;
+  /* Brighter Red for hover */
+
+  --secondary: #2A2F3A;
+  /* Gunmetal */
+  --secondary-hover: #373D4A;
+
+  --accent: #cd3f3e;
+  /* Alert Red */
+
+  --card: #16191f;
+  --card-border: #2a2f3a;
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-secondary: var(--secondary);
+  --color-secondary-hover: var(--secondary-hover);
+  --color-accent: var(--accent);
+  --color-card: var(--card);
+  --color-card-border: var(--card-border);
+
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Glassmorphism Utilities */
+.glass-panel {
+  background: rgba(22, 25, 31, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.gold-glow {
+  box-shadow: 0 0 20px rgba(144, 25, 25, 0.35);
+}
