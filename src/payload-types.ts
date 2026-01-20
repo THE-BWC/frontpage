@@ -270,8 +270,22 @@ export interface Page {
         events?:
           | {
               year: string;
-              title: string;
-              description?: string | null;
+              title?: string | null;
+              description?: {
+                root: {
+                  type: string;
+                  children: {
+                    type: any;
+                    version: number;
+                    [k: string]: unknown;
+                  }[];
+                  direction: ('ltr' | 'rtl') | null;
+                  format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                  indent: number;
+                  version: number;
+                };
+                [k: string]: unknown;
+              } | null;
               image?: (number | null) | Media;
               id?: string | null;
             }[]
@@ -279,6 +293,57 @@ export interface Page {
         id?: string | null;
         blockName?: string | null;
         blockType: 'timeline';
+      }
+    | {
+        members: {
+          name: string;
+          callsign?: string | null;
+          rank?: string | null;
+          dateOfPassing?: string | null;
+          tribute?: {
+            root: {
+              type: string;
+              children: {
+                type: any;
+                version: number;
+                [k: string]: unknown;
+              }[];
+              direction: ('ltr' | 'rtl') | null;
+              format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+              indent: number;
+              version: number;
+            };
+            [k: string]: unknown;
+          } | null;
+          image?: (number | null) | Media;
+          id?: string | null;
+        }[];
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'memorial';
+      }
+    | {
+        title: string;
+        subtitle?: {
+          root: {
+            type: string;
+            children: {
+              type: any;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        showLine?: boolean | null;
+        alignment?: ('left' | 'center') | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'header';
       }
   )[];
   updatedAt: string;
@@ -489,6 +554,33 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
+        memorial?:
+          | T
+          | {
+              members?:
+                | T
+                | {
+                    name?: T;
+                    callsign?: T;
+                    rank?: T;
+                    dateOfPassing?: T;
+                    tribute?: T;
+                    image?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        header?:
+          | T
+          | {
+              title?: T;
+              subtitle?: T;
+              showLine?: T;
+              alignment?: T;
+              id?: T;
+              blockName?: T;
+            };
       };
   updatedAt?: T;
   createdAt?: T;
@@ -540,6 +632,7 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
 export interface Setting {
   id: number;
   siteTitle: string;
+  joinUrl?: string | null;
   logo?: (number | null) | Media;
   socialLinks?:
     | {
@@ -557,6 +650,7 @@ export interface Setting {
  */
 export interface SettingsSelect<T extends boolean = true> {
   siteTitle?: T;
+  joinUrl?: T;
   logo?: T;
   socialLinks?:
     | T

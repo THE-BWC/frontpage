@@ -5,6 +5,8 @@ import configPromise from '@payload-config'
 import { Hero } from '@/components/blocks/Hero'
 import { Content } from '@/components/blocks/Content'
 import { Timeline } from '@/components/blocks/Timeline'
+import { Memorial } from '@/components/blocks/Memorial'
+import { Header } from '@/components/blocks/Header'
 
 type Props = {
     params: Promise<{
@@ -41,6 +43,10 @@ export default async function Page({ params }: Props) {
                         return <Content key={index} {...block} />
                     case 'timeline':
                         return <Timeline key={index} {...block} />
+                    case 'memorial':
+                        return <Memorial key={index} {...block} />
+                    case 'header':
+                        return <Header key={index} {...block} />
                     default:
                         return null
                 }
