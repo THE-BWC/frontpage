@@ -2,13 +2,13 @@ import React from 'react'
 import Image from 'next/image'
 import { Media } from '@/payload-types'
 
-type CheckMedia = Media | string | null | undefined
+type CheckMedia = Media | number | string | null | undefined
 
 type Props = {
     title: string
     subtitle?: string | null
     type?: 'default' | 'fullscreen' | null
-    backgroundImage: CheckMedia
+    backgroundImage?: CheckMedia
     backgroundVideo?: CheckMedia
     youtubeVideoID?: string | null
 }
@@ -45,7 +45,7 @@ export const Hero = ({ title, subtitle, type, backgroundImage, backgroundVideo, 
                 ) : bgUrl && (
                     <Image
                         src={bgUrl}
-                        alt={typeof backgroundImage === 'object' ? backgroundImage.alt || title : title}
+                        alt={typeof backgroundImage === 'object' && backgroundImage?.alt ? backgroundImage.alt : title}
                         fill
                         className="object-cover"
                         priority

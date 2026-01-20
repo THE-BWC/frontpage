@@ -61,7 +61,7 @@ export default async function HomePage() {
           <div className="flex items-center justify-between mb-12">
             <FadeIn>
               <h2 className="text-3xl font-black uppercase tracking-wider text-white">
-                Latest Intel
+                Latest News
               </h2>
               <div className="h-1 w-12 bg-primary mt-2 rounded-full" />
             </FadeIn>
@@ -110,7 +110,7 @@ export default async function HomePage() {
           <div className="flex items-center justify-between mb-12">
             <FadeIn>
               <h2 className="text-3xl font-black uppercase tracking-wider text-white">
-                Active Operations
+                Active Games
               </h2>
               <div className="h-1 w-12 bg-primary mt-2 rounded-full" />
             </FadeIn>
