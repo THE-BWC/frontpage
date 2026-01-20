@@ -15,11 +15,10 @@ export const TimelineBlock: Block = {
                 {
                     name: 'title',
                     type: 'text',
-                    required: true,
                 },
                 {
                     name: 'description',
-                    type: 'textarea',
+                    type: 'richText',
                 },
                 {
                     name: 'image',
