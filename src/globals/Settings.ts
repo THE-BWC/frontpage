@@ -10,6 +10,12 @@ export const Settings: GlobalConfig = {
             defaultValue: 'Black Widow Company',
         },
         {
+            name: 'joinUrl',
+            type: 'text',
+            label: 'Apply Now URL',
+            defaultValue: 'https://blackwidowcompany.com/join',
+        },
+        {
             name: 'logo',
             type: 'upload',
             relationTo: 'media',

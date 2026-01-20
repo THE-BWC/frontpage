@@ -33,6 +33,14 @@ export async function Navbar() {
                             <NavLink href="/memorial">Memorial</NavLink>
                         </div>
                     </div>
+                    <div className="hidden md:block">
+                        <Link
+                            href={settings.joinUrl || '#'}
+                            className="bg-primary hover:bg-primary-hover text-white px-6 py-2 rounded-md text-sm font-bold uppercase tracking-widest transition-all duration-300 shadow-[0_0_15px_rgba(144,25,25,0.3)] hover:shadow-[0_0_20px_rgba(144,25,25,0.5)]"
+                        >
+                            Apply Now
+                        </Link>
+                    </div>
                 </div>
             </div>
         </nav>
